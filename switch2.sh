@@ -17,11 +17,11 @@ fi
 if [ "$1" = "Set" ]; then
     case "$3" in
         "On")
-            if [ "$1" = "1" ]; then
-                python3 home/shun/irrp.py -p -g17 -f codes light:on
+            if [ "$4" = "1" ]; then
+                python3 /var/lib/homebridge/irrp.py -p -g17 -f codes light:on
                 exit 0
             else
-                python3 home/shun/irrp.py -p -g17 -f codes light:on
+                python3 /var/lib/homebridge/irrp.py -p -g17 -f codes light:on
                 exit 0
             fi
             ;;
