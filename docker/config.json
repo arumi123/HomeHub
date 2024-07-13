@@ -1,0 +1,19 @@
+{
+    type: HeaterCooler,
+    name: "MY_HeaterCooler",
+    displayName: "MY_HeaterCooler",
+    active: "1",
+    currentHeaterCoolerState: "0",
+    targetHeaterCoolerState: "1",
+    currentTemperature: "22.2",
+    lockPhysicalControls: < UINT8 >,
+    name: "< STRING> ",
+    Unknown format float,
+    swingMode: < UINT8 >,
+    Unknown format float,
+    Unknown format float,
+    temperatureDisplayUnits: < UINT8 >,
+    state_cmd: < "STRING" >,
+    polling: < POLLING>
+
+ }
