@@ -1,3 +1,1 @@
-# homebridge
-# this code is for automate homebrige
-# git branch training
+# This is creating homebridge enviroment and shellscript which can IR controll.
