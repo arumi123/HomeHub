@@ -34,4 +34,5 @@ if [ "$1" = "Set" ]; then
                 echo $4
             ;;
     esac
+    exit 0
 fi
