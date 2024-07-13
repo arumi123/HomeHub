@@ -1,19 +1,38 @@
-{
-    type: HeaterCooler,
-    name: "MY_HeaterCooler",
-    displayName: "MY_HeaterCooler",
-    active: "1",
-    currentHeaterCoolerState: "0",
-    targetHeaterCoolerState: "1",
-    currentTemperature: "22.2",
-    lockPhysicalControls: < UINT8 >,
-    name: "< STRING> ",
-    Unknown format float,
-    swingMode: < UINT8 >,
-    Unknown format float,
-    Unknown format float,
-    temperatureDisplayUnits: < UINT8 >,
-    state_cmd: < "STRING" >,
-    polling: < POLLING>
-
- }
+"platforms": [
+    {
+        "platform": "Cmd4",
+        "name": "Cmd4",
+        "accessories": [
+            {
+                "type": "Switch",
+                "name": "Server",
+                "displayName": "server",
+                "on": "FALSE",
+                "polling": [
+                    {
+                        "characteristic": "on",
+                        "interval": 5,
+                        "timeout": 10000
+                    }
+                ],
+                "state_cmd": "/patch/to/server.sh"
+            },
+            {
+                "type": "HeaterCooler",
+                "name": "MY_HeaterCooler",
+                "displayName": "MY_HeaterCooler",
+                "active": "1",
+                "currentHeaterCoolerState": "0",
+                "targetHeaterCoolerState": "1",
+                "currentTemperature": "22.2",
+                "lockPhysicalControls": < UINT8 >,
+                "name": "< STRING> ",
+                "swingMode": < UINT8 >,
+                "temperatureDisplayUnits": < UINT8 >,
+                "state_cmd": "HeaterCooler.sh",
+                "polling": < POLLING>
+            
+             }
+        ]
+    }
+]
