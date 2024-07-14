@@ -1,3 +1,4 @@
+{
 "platforms": [
     {
         "platform": "Cmd4",
@@ -35,3 +36,4 @@
         ]
     }
 ]
+}
