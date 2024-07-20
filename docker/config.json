@@ -31,7 +31,7 @@
                 "swingMode": < UINT8 >,
                 "temperatureDisplayUnits": < UINT8 >,
                 "state_cmd": "HeaterCooler.sh",
-                "polling": < POLLING >,            
+                "polling": < ここちがくない？>,            
              }
         ]
     }
