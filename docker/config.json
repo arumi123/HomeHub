@@ -1,39 +1,62 @@
 {
-"platforms": [
-    {
-        "platform": "Cmd4",
-        "name": "Cmd4",
-        "accessories": [
-            {
-                "type": "Switch",
-                "name": "Server",
-                "displayName": "server",
-                "on": "FALSE",
-                "polling": [
-                    {
-                        "characteristic": "on",
-                        "interval": 5,
-                        "timeout": 10000
-                    }
-                ],
-                "state_cmd": "/patch/to/server.sh"
-            },
-            {
-                "type": "HeaterCooler",
-                "name": "MY_HeaterCooler",
-                "displayName": "MY_HeaterCooler",
-                "active": "1",
-                "currentHeaterCoolerState": "0",
-                "targetHeaterCoolerState": "1",
-                "currentTemperature": "22.2",
-                "lockPhysicalControls": < UINT8 >,
-                "name": "< STRING> ",
-                "swingMode": < UINT8 >,
-                "temperatureDisplayUnits": < UINT8 >,
-                "state_cmd": "HeaterCooler.sh",
-                "polling": < ここちがくない？>,            
-             }
-        ]
-    }
-]
+    "bridge": {
+        "name": "Homebridge 9695",
+        "username": "0E:42:BE:DC:96:95",
+        "port": 51090,
+        "pin": "816-76-290",
+        "advertiser": "avahi"
+    },
+    "accessories": [],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8581,
+            "platform": "config"
+        },
+        {
+            "platform": "Cmd4",
+            "name": "Cmd4",
+            "accessories": [
+                {
+                    "type": "Switch",
+                    "name": "Server",
+                    "displayName": "Server",
+                    "on": "true",
+                    "polling": true,
+                    "state_cmd": "/var/lib/homebridge/node_modules/switch.sh"
+                },
+                {
+                    "type": "Lightbulb",
+                    "name": "リビング",
+                    "displayName": "リビング",
+                    "on": "true",
+                    "brightness": "1",
+                    "colorTemperature": "1",
+                    "polling": false,
+                    "state_cmd": "/var/lib/homebridge/node_modules/switch.sh"
+                },
+                {
+                    "type": "HeaterCooler",
+                    "name": "あいう",
+                    "displayName": "あいう",
+                    "active": "1",
+                    "currentHeaterCoolerState": "0",
+                    "targetHeaterCoolerState": "1",
+                    "currentTemperature": "22.2",
+                    "lockPhysicalControls": "1",
+                    "swingMode": "1",
+                    "temperatureDisplayUnits": "22.0",
+                    "state_cmd": "/var/lib/homebridge/node_modules/switch.sh"
+                },
+                {
+                    "type": "Fanv1",
+                    "name": "MY_Fanv1",
+                    "displayName": "MY_Fanv1",
+                    "on": "0",
+                    "rotationDirection": "1",
+                    "state_cmd": "bash /home/shun/switch.sh"
+                }
+            ]
+        }
+    ]
 }

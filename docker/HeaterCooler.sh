@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#第一引数がGet(ポーリングに使われる)の場合
+#第2引数は同じスイッチから複数の機器を指定する際に、
+#どの機器について指定するかをさす
+
 if [ "$1" = "Get" ]; then
     case "$3" in
         "On")
@@ -14,24 +18,32 @@ if [ "$1" = "Get" ]; then
     exit 0
 fi
 
+
+
+#第1引数がSet(状態の変更)の場合
 if [ "$1" = "Set" ]; then
     case "$3" in
-        "On")
+        "active")
             if [ "$4" = "1" ]; then
-                #python3 /var/lib/homebridge/irrp.py -p -g17 -f codes light:on
+                #power on command
                 exit 0
             else
-                #python3 /var/lib/homebridge/irrp.py -p -g17 -f codes light:on
+                #power off command
                 exit 0
             fi
             ;;
-        "Tenmp")
-                #python3 /var/lib/homebridge/irrp.py -p -g17 -f codes temp:$4
-                echo $4
+        "targetHeaterCoolerState")
+            if [ "$4" = "1" ]; then
+                #Hearter command
+                exit 0
+            else
+                #Cooler command
+                exit 0
+            fi
             ;;
-        "mode")
-                #python3 /var/lib/homebridge/irrp.py -p -g17 -f codes mode:$4
-                echo $4
+        "currentTemperature")
+                #$4を温度とする温度変更のコマンドを作成する。
+                exit 0
             ;;
     esac
     exit 0
