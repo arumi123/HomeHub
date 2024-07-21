@@ -52,7 +52,9 @@
                     "manufacturer": "Somebody",
                     "model": "Anything",
                     "serialNumber": "12345",
-                    "stateChangeResponseTime": 3
+                    "stateChangeResponseTime": 3,
+                    "polling" false: ,
+                    "state_cmd": "python3 /var/lib/homebridge/node_modules/HeaterCooler.py"
                 },
                 {
                     "type": "Fanv1",
