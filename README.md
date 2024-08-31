@@ -1,6 +1,7 @@
 # This is creating homebridge enviroment and shellscript which can IR controll.
 
 デベロップブランチ　1回目のプッシュ
+デベロップブランチ　2回目のプッシュ
 
 エアコンは以下のデータを読み取った
 停止ボタン　
