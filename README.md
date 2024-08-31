@@ -15,3 +15,4 @@
 
 冷房時の温度設定
 "CoolingThresholdTemperature": 27,
+
