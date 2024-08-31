@@ -1,6 +1,7 @@
 # This is creating homebridge enviroment and shellscript which can IR controll.
 
 coolerブランチ一回目
+coolerぶらんち2かいめ
 
 エアコンは以下のデータを読み取った
 停止ボタン　
