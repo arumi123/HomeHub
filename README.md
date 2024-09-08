@@ -1,4 +1,5 @@
-# This is creating homebridge enviroment and shellscript which can IR controll.
+# スマホから家電を操作する
+
 
 デベロップブランチ　1回目のプッシュ
 デベロップブランチ　2回目のプッシュ
