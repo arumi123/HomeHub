@@ -1,4 +1,4 @@
-# Raspi zero wh で実現するhomekit
+# 
 
 iosのホームキットから家電が操作できる
 
