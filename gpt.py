@@ -30,7 +30,7 @@ functions = [
 user_prompt = input("Enter your command (e.g., 'cooler 22', 'heater 25', 'off'): ")
 
 # GPT-4 モデルを呼び出して function calling を行う
-response = openai.ChatCompletion.create(
+response = openai.completions.create(
     model="gpt-4-0613",
     messages=[
         {
