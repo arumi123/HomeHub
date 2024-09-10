@@ -1,9 +1,15 @@
 import openai
 import json
 import subprocess
+import os
 
-# OpenAI API キーを設定
-openai.api_key = "your-openai-api-key"
+# ローカルの環境変数からAPIを取得する
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# APIキーが取得できなかった場合のエラーメッセージ
+if openai.api_key is None:
+    print("Error: API key not found in environment variables.")
+    exit(1)
 
 # GPT-4に定義する関数（coolerheater.shの制御）
 functions = [
