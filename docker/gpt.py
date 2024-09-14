@@ -52,7 +52,9 @@ response = openai.chat.completions.create(
     model="gpt-3.5-turbo-0125",
     messages = messages,
     tools=tools,
+    tool_choice="auto"
 )
+print(response)
 
 # 関数呼び出しの結果を取得
 #function_call = response['choices'][0]['message']['function_call']
@@ -60,8 +62,11 @@ response = openai.chat.completions.create(
 #print("With arguments: ", function_call['arguments'])
 
 tool_call = response.choices[0].message.tool_calls[0]
-arguments = json.loads(tool_call['function']['arguments'])
-print(arguments)
+print(tool_call)
+mode = json.loads(tool_call['function']['arguments']['mode']) 
+roomtemprature = json.loads(tool_call['function']['arguments']['temprature']) 
+print(mode)
+print(roomtemprature)
 #order_id = arguments.get('order_id')
 
 # Call the get_delivery_date function with the extracted order_id
