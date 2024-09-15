@@ -132,6 +132,7 @@ def save_status():
     json.dump(status, f, indent=2)
 
 if __name__ == "__main__":
+  print('\nHeaterCooler.py has been called\nHeaterCooler has been changed to this following: ', sys.argv[3], sys.argv[4])
   # statusを保存しておくファイルがなければ作る
   if os.path.exists('/var/lib/homebridge/node_modules/acDataHolder.json') == False:
     cmd = pathlib.Path('/var/lib/homebridge/node_modules/acDataHolder.json')
