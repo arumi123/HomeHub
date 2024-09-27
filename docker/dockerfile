@@ -1,3 +1,38 @@
-FROM python:3.8-slim-buster
-CMD python --version
+# ベースイメージとしてNode.jsを使用 (Pythonもインストール可能な軽量のLinuxベース)
+FROM node:14-buster
 
+# 作業ディレクトリを設定
+WORKDIR /usr/src/app
+
+# Pythonのインストール
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python パッケージのインストール (必要に応じて)
+RUN pip3 install --upgrade pip
+# 例として Flask をインストール
+RUN pip3 install flask
+
+# Homebridgeのインストール
+RUN npm install -g --unsafe-perm homebridge
+
+# HomebridgeのUIプラグインのインストール
+RUN npm install -g --unsafe-perm homebridge-config-ui-x
+
+# Homebridgeの設定ファイルディレクトリを作成
+RUN mkdir -p /homebridge/config
+VOLUME /homebridge
+
+# Node.jsのパッケージインストール (必要に応じて)
+# 例として Express をインストール
+RUN npm install express
+
+# ホストからのポートをエクスポート
+EXPOSE 8581  # Homebridge UI 用のポート
+EXPOSE 5000  # Flask 用のポート
+
+# デフォルトコマンドとしてHomebridgeを起動
+CMD homebridge
