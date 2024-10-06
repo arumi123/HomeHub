@@ -1,11 +1,43 @@
 import sys
 import subprocess
 
+def main():
+    # 引数の数をチェック
+    if len(sys.argv) < 5:
+        print("Usage: script.py [Get|Set] <arg1> <arg2> <0|1>")
+        sys.exit(1)
 
-if sys.argv[1] == 'Get':
-    pass
+    command = sys.argv[1]
+    arg1 = sys.argv[2]
+    arg2 = sys.argv[3]
 
+    try:
+        light_state = int(sys.argv[4])  # 引数を整数に変換
+    except ValueError:
+        print("Invalid light state. Use 0 to turn off or 1 to turn on.")
+        sys.exit(1)
 
-if sys.argv[1] == 'Set':
-    if sys.arg[4] == 1:
-        subprocess.run(['python3', ])
+    if command == 'Get':
+        # Get の処理をここに追加
+        print("Get command executed with args:", arg1, arg2)
+
+    elif command == 'Set':
+        try:
+            if light_state == 1:
+                print("Turning on the light...")
+                subprocess.run(['python3', '/var/lib/homebridge/irrp.py', '-p', '-g17', '-f', 'codes', 'light:on'], check=True)
+            elif light_state == 0:
+                print("Turning off the light...")
+                subprocess.run(['python3', '/var/lib/homebridge/irrp.py', '-p', '-g17', '-f', 'codes', 'light:off'], check=True)
+            else:
+                print("Invalid light state. Use 0 to turn off or 1 to turn on.")
+                sys.exit(1)
+        except subprocess.CalledProcessError as e:
+            print(f"An error occurred while trying to change the light state: {e}")
+            sys.exit(1)
+    else:
+        print("Invalid command. Use 'Get' or 'Set'.")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
