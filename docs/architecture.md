@@ -1,7 +1,7 @@
 # System Architecture
 
 ## Overview
-このドキュメントは、[プロジェクト名]のシステムアーキテクチャを説明します。このシステムは、Raspberry PiとAWSを連携させて[目的や機能]を実現します。
+このドキュメントは、システムアーキテクチャを説明します。このシステムは、Raspberry PiとAWS,iphone,ChatGPTを連携させて実現します。
 
 ## Architecture Diagram
 ```mermaid
