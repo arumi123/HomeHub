@@ -1,34 +1,40 @@
 ```mermaid
 graph TD;
-    subgraph ClientSide [クライアントサイド]
-        Browser[ブラウザ]
-        MobileApp[モバイルアプリ]
+    subgraph iPhone [iPhone]
+        Homeapp[Homeapp]
     end
 
-    subgraph ServerSide [サーバーサイド]
-        API[APIサーバー]
-        DB[(データベースサーバー)]
-        FileStorage[(ファイルストレージ)]
+    subgraph ChatGPTserver [ChatGPTserver]
+        ChatGPT[ChatGPT]
     end
 
-    subgraph CloudService [クラウドサービス]
-        CloudAPI[外部クラウドAPI]
-        IoTService[IoT管理サービス]
+    subgraph AWS [AWS]
+        lamda[lamda]
+        IoTcore[IoTcore]
     end
 
-    Browser -->|HTTPリクエスト| API
-    MobileApp -->|HTTPリクエスト| API
-    API -->|SQLクエリ| DB
-    API -->|ファイル操作| FileStorage
-    API -->|APIリクエスト| CloudAPI
-    CloudAPI -->|データ送信| IoTService
-    IoTService -->|コントロール| Device[スマートデバイス]
+    subgraph RasPiSide [RasberryPi]
+        subgraph dockercontainer[docker]
+            subgraph Node.js[Node.js]
+                Homebridge[Homebridge]
+                pythonmodule[pythonmodule]
+                data.json[data.json]
+            end
+        end
+    end
+
+    light
+
+    ac
+
+    Homeapp -->|http?| Homebridge
+    Homebridge -->|ipc| pythonmodule
+    Homebridge -->|http?| Homeapp
+    pythonmodule -->|IR| light
+    pythonmodule -->|IR| ac
+    pythonmodule -->|ipc| Homebridge
+    pythonmodule -->|ipc| data.json
+    pythonmodule -->|http?| ChatGPT
+    ChatGPT -->|http?| pythonmodule
 ```
 
-```mermaid
-pie title Pets adopted by volunteers
-    "Dogs" : 386
-    "Cats" : 85
-    "Rats" : 15
-
-```
