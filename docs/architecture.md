@@ -23,9 +23,9 @@ graph TD;
         subgraph dockercontainer[docker]
             subgraph Node.js[Node.js]
                 Homebridge[Homebridge]
-                pythonmodule[pythonmodule]
-                data.json[data.json]
             end
+            pythonmodule[pythonmodule]
+            data.json[data.json]
         end
     end
 
