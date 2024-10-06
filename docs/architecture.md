@@ -4,7 +4,7 @@
 このドキュメントは、[プロジェクト名]のシステムアーキテクチャを説明します。このシステムは、Raspberry PiとAWSを連携させて[目的や機能]を実現します。
 
 ## Architecture Diagram
-```mermaid:配置図
+```mermaid
 graph TD;
     subgraph iPhone [iPhone]
         Homeapp[Homeapp]
