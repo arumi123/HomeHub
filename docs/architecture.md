@@ -76,6 +76,41 @@ graph TD;
 - **認証**: AWS IoT Coreに接続する際は、X.509証明書を使用して認証します。
 - **アクセス管理**: IAMポリシーを用いて、Lambda関数やDynamoDBへのアクセスを制限します。
 
+## クラス図
+```mermaid
+classDiagram
+    class Device {
+        <<abstract>>
+        +turn_on()
+        +turn_off()
+        +execute_command(command, *args)
+    }
+
+    class AirConditioner {
+        +set_temperature(temperature) 
+    } 
+    Device <|-- AirConditioner 
+
+    class Light { 
+        +set_brightness(level) 
+    } 
+    Device <|-- Light 
+
+    class DeviceFactory { 
+        +create_device(device_type, name): Device 
+    } 
+
+    class GPTController { 
+        -device: Device 
+        +control_device_via_gpt(gpt_command): void 
+    }
+
+    GPTController --> Device 
+    DeviceFactory --> Device 
+    DeviceFactory o-- AirConditioner 
+    DeviceFactory o-- Light
+```
+
 ## Conclusion
 このアーキテクチャにより、リアルタイムでセンサーデータを収集・処理し、必要に応じてデータを保存・分析するシステムが実現されます。
 
