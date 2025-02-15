@@ -2,6 +2,19 @@ import json
 import os
 from time import sleep
 
+class Devicefactory:
+    @staticmethod
+    def create_device(device_type, category):
+        if category == "LightBulb":
+            if device_type == "RE0207":
+                return Re0207()
+            elif device_type == "CL-RS2":
+                return ClRs2()
+        elif category == "HeaterCooler":
+            if device_type == "PanasonicAC":
+                return PanasonicAC()
+        raise ValueError(f"Unsupported device type: {device_type}")
+
 # Deviceクラス
 class Device:
     def __init__(self):
@@ -70,16 +83,16 @@ class Device:
             print("Failed to write device information to devicestate.json:", e)
             return None
 
-# Bulbドライバの抽象クラス
-class Bulb(Device):
+# LightBulbドライバの抽象クラス
+class LightBulb(Device):
     def brightness(self, bright):
         pass
 
     def colortemp(self,temp):
         pass
 
-# シーリングライトのRE0207(CH1)のBulbドライバ
-class Re0207(Bulb):
+# シーリングライトのRE0207(CH1)のLightBulbドライバ
+class Re0207(LightBulb):
     def brightness(self, bright):
         # brightが0~100の間にない場合はエラーを返し、0に設定する
         if not (0 <= getstatus(self,brightness) <= 100):
@@ -138,8 +151,8 @@ class Re0207(Bulb):
         if not (0 <= temp <= 5):
             raise ValueError("Invalid brightness value. Please specify a value between 0 and 5.")
 
-# シーリングライトのCL-RS2のBulbドライバ
-class ClRs2(Bulb):
+# シーリングライトのCL-RS2のLightBulbドライバ
+class ClRs2(LightBulb):
     def brightness(self, target_brightness):
         # brightが0~100の間にない場合は、エラーを返し、値0を代入する
         if not (0 <= self.get_status("brightness")  <= 100):
