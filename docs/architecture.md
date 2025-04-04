@@ -125,6 +125,6 @@ classDiagram
 
 ## シーケンス図
 ユーザストーリに紐づいて、動的な設計が特に必要な場合記述する
-[0.1 開発者が、CICDを使用して開発効率を、向上したい。](https://github.com/arumi123/HomeHub/blob/develop/docs/requirements.md#01-%E9%96%8B%E7%99%BA%E8%80%85%E3%81%8Ccicd%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92%E5%90%91%E4%B8%8A%E3%81%97%E3%81%9F%E3%81%84)
+### [0.1 開発者が、CICDを使用して開発効率を、向上したい。](https://github.com/arumi123/HomeHub/blob/develop/docs/requirements.md#01-%E9%96%8B%E7%99%BA%E8%80%85%E3%81%8Ccicd%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92%E5%90%91%E4%B8%8A%E3%81%97%E3%81%9F%E3%81%84)
 ~~~mermaid
 ~~~
