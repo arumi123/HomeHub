@@ -18,9 +18,6 @@
 - [要求仕様書](docs/requirements.md)  
   プロジェクトの要求仕様をまとめた文書です。
 
-- [仕様書](docs/specifications.md)  
-  各機能の詳細や技術的な仕様を記述した文書です。
-
 - [ユーザーマニュアル](docs/user_manual.md)  
   システムの使用方法や操作手順を説明した文書です。
 
@@ -30,19 +27,7 @@
 - [アーキテクチャドキュメント](docs/architecture.md)  
   システムの全体構造やコンポーネント間の関係を示した文書です。
 
-- [テスト計画](docs/test_plan.md)  
-  テストケースや実施方法をまとめた文書です。
-
-- [変更履歴](docs/changelog.md)  
-  プロジェクトの変更履歴やリリース情報を記録した文書です。
-
-- [コントリビュータガイド](docs/contributing.md)  
-  プロジェクトに貢献するためのガイドラインを提供した文書です。
-
-- [ロードマップ](docs/roadmap.md)  
-  プロジェクトの将来の計画や開発の方向性を示した文書です。
-
-## 使用方法
+## 使用方法(raspiのみで実現する機能を使う場合)
 raspizeroに下記手順でdokcerをインストールします
 
 必要なパッケージのインストール:
@@ -121,3 +106,5 @@ docker-compose --version
 plaintext
 コードをコピーする
 Docker Compose version v2.x.x
+
+## 使用方法(raspi+awsを使用する機能も使う場合)
