@@ -108,3 +108,4 @@ plaintext
 Docker Compose version v2.x.x
 
 ## 使用方法(raspi+awsを使用する機能も使う場合)
+control
