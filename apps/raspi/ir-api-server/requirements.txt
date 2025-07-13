@@ -1,0 +1,18 @@
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Data Validation
+pydantic==2.5.0
+
+# GPIO Control (for Raspberry Pi)
+pigpio==1.78
+
+# Async Support
+asyncio==3.4.3
+
+# Logging
+structlog==23.2.0
+
+# Development
+python-dotenv==1.0.0 

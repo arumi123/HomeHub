@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  ir-api-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ir_api_server
+    ports:
+      - "8000:8000"
+    volumes:
+      # GPIOアクセスのためのデバイスマウント
+      - /dev/gpiomem:/dev/gpiomem
+      # データディレクトリの永続化
+      - ./data:/app/data
+    environment:
+      - IR_GPIO_PIN=17
+      - IR_FREQUENCY=38.0
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    privileged: true  # GPIOアクセスのために必要 

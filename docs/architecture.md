@@ -17,12 +17,26 @@ graph TD;
     end
 
     subgraph RasPiSide [RasberryPi]
-        subgraph dockercontainer[docker]
-            subgraph Node.js[Node.js]
-                Homebridge[Homebridge]
+        subgraph docker[docker]
+            subgraph HomebridgeContainer[Homebridge Container]
+                subgraph Node.js[Node.js]
+                    Homebridge[Homebridge]
+                    cmd4[cmd4]
+                end
             end
-            pythonmodule[pythonmodule]
-            data.json[data.json]
+            subgraph IRContainer[IR Container]
+                pythonmodule[pythonmodule]
+                data.json[data.json]
+            end
+            subgraph AWSClientContainer[AWS Client Container]
+                AWSClient[AWSClient]
+            end
+            subgraph GPTContainer[GPT Client Container]
+                GPTClient[GPTClient]
+            end
+            subgraph CLIClientContainer[CLI Client Container]
+                CLIClient[CLIClient]
+            end
         end
     end
 
